@@ -24,7 +24,7 @@ namespace Survey.WebAPI.Controllers
             //var surveys = new List<Domain.Survey>();
             //var vo = new List<ValidOperation>();
             //vo.Add(ValidOperation.Start);
-
+            // NEW COMMENT COMMIT 1
             //surveys.Add(new Domain.Survey() { State = (int)request.Status, Id = 1 , CreateDateTime= DateTime.Now, Duration = 1000, CreatorUserName="sh.abedi" , QCount = 1, Q1="آیا" , ValidOperations = vo});
             return surveyService.GetAll(request);
             
