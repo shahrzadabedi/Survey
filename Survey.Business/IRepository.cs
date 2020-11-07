@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Survey.Business
 {
-   public interface IRepository<TEntity> 
+   public interface IRepository<TEntity>
    {
        void Delete(TEntity entityToDelete);
        void Delete(object id);

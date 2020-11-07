@@ -1,5 +1,6 @@
 ﻿using Survey.Business;
 using Survey.Domain;
+using Survey.WebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,18 +18,13 @@ namespace Survey.WebAPI.Controllers
             this.surveyService = surveyService;
 
         }
-        // POST: api/Survey/GetAll
-        [HttpPost]
+        // GET: api/Survey/GetAll
+        [HttpGet]
         public GetSurveysByStatusResponse GetAll(GetSurveysByStatusRequest request)
         {
-            //var surveys = new List<Domain.Survey>();
-            //var vo = new List<ValidOperation>();
-            //vo.Add(ValidOperation.Start);
-            // NEW COMMENT COMMIT 1
-            //NEW COMMENT COMMIT 2
-            //NEW COMMENT COMMIT 3
-            //NEW COMMENT COMMIT 4
-            //surveys.Add(new Domain.Survey() { State = (int)request.Status, Id = 1 , CreateDateTime= DateTime.Now, Duration = 1000, CreatorUserName="sh.abedi" , QCount = 1, Q1="آیا" , ValidOperations = vo});
+            //if (!ModelState.IsValid)
+            //    return BadRequest("ASDASDASD");
+
             return surveyService.GetAll(request);
             
                 //Surveys = surveys };

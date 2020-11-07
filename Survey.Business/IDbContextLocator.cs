@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Survey.Domain;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -7,8 +8,20 @@ using System.Threading.Tasks;
 
 namespace Survey.Business
 {
-   public interface IDbContextLocator
+   //public interface IEFRepositoryLocator: IDbContextLocator ,IEFRepositoryLocator
+   // {       
+       
+   // }
+    public interface IDbContextLocator 
     {
-        DbContext Get();
+        DbContext DbContext { get; }
+
+    }
+    public interface IEFRepositoryLocator<TSurvey,TUserSurvey> where TSurvey: ISurvey 
+        //where TUserSurvey:IUserSurvey
+    {
+        IRepository<TSurvey> SurveyRep();
+        IRepository<TUserSurvey> UserSurveyRep { get;  }
+
     }
 }

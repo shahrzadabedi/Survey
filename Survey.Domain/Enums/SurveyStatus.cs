@@ -1,5 +1,8 @@
-﻿namespace Survey.Domain
+﻿using System;
+
+namespace Survey.Domain
 {
+    [Flags]
     public enum SurveyStatus
     {
         New = 1,
