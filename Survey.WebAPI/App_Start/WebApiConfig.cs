@@ -24,7 +24,7 @@ namespace Survey.WebAPI
            //    routeTemplate: "api/{controller}/GetAll",
            //    defaults: new { id = RouteParameter.Optional }
            //);
-            StructuremapWebApi.Start();
+           // StructuremapWebApi.Start();
         }
     }
 }

@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEFRepository.cs" />
-    <Compile Include="DefaultRegistry.cs" />
     <Compile Include="IDbContextLocator.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="ISurveyService.cs" />
