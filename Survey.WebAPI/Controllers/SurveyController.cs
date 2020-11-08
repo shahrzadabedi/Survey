@@ -1,5 +1,6 @@
 ﻿using Survey.Business;
 using Survey.Domain;
+using Survey.WebAPI.Filters;
 using Survey.WebAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -19,13 +20,15 @@ namespace Survey.WebAPI.Controllers
 
         }
         // GET: api/Survey/GetAll
+        [BasicAuthentication]
         [HttpGet]
-        public GetSurveysByStatusResponse GetAll(GetSurveysByStatusRequest request)
-        {
-            //if (!ModelState.IsValid)
-            //    return BadRequest("ASDASDASD");
 
-            return surveyService.GetAll(request);
+        public IHttpActionResult GetAll(SurveyStatus status)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("ASDASDASD");
+
+            return Ok(surveyService.GetAll(status));
             
                 //Surveys = surveys };
         }

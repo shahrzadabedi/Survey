@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration.Internal;
 using System.Linq;
 using System.Web.Http;
 using SimpleInjector;
 using Survey.Business;
+using Survey.WebAPI.Filters;
 
 namespace Survey.WebAPI
 {
@@ -28,15 +30,15 @@ namespace Survey.WebAPI
             //);
             // StructuremapWebApi.Start();
             // 1. Create a new Simple Injector container
-          //  Container container = new Container();
+            //Container container = new Container();
 
             // 2. Configure the container (register)
             //container.Register<ISurveyService, SurveyService>();
-            //container.Register<ILogger, FileLogger>(Lifestyle.Singleton);
-            //container.Register<CancelOrderHandler>();
+            
 
             // 3. Verify your configuration
-          //  container.Verify();
+            //container.Verify();
+          //config.Filters .Add(BasicAuthenticationAttribute)
         }
     }
 }
