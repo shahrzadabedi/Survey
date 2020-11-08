@@ -13,7 +13,7 @@ namespace Survey.Business
         {
             Container.Register<ISurveyService, SurveyService>(Lifestyle.Scoped);            
             //Container.Register(typeof(IRepository<>), typeof(BaseEFRepository<>).Assembly);
-            //Container.Register<IEFRepositoryLocator<DataAccess.Survey, DataAccess.User_Survey>, SurveyEfDbContextLocator>(Lifestyle.Scoped);
+            //Container.Register<IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.User_Survey>, SurveyEfDbContextLocator>(Lifestyle.Scoped);
         }
         
     }

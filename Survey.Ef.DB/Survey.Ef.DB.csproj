@@ -7,9 +7,9 @@
     <ProjectGuid>{4F30F546-3948-4C2E-926B-1D93AF911FE8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Survey.DataAccess</RootNamespace>
+    <RootNamespace>Survey.Ef.DB</RootNamespace>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <AssemblyName>Survey.DataAccess</AssemblyName>
+    <AssemblyName>Survey.Ef.DB</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
