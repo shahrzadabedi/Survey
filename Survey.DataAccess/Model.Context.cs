@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Survey.DataAccess
+namespace Survey.Ef.DB
 {
     using System;
     using System.Data.Entity;

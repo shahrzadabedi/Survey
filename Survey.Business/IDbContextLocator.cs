@@ -17,11 +17,12 @@ namespace Survey.Business
         DbContext DbContext { get; }
 
     }
-    public interface IEFRepositoryLocator<TSurvey,TUserSurvey> where TSurvey: ISurvey 
-        //where TUserSurvey:IUserSurvey
+    public interface IEFRepositoryLocator<TSurvey,TUserSurvey>  
+    //where TUserSurvey:IUserSurvey
     {
-        IRepository<TSurvey> SurveyRep();
+        IRepository<TSurvey> SurveyRep() ;
         IRepository<TUserSurvey> UserSurveyRep { get;  }
 
     }
+    
 }

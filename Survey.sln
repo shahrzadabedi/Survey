@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.DataAccess", "Survey.DataAccess\Survey.DataAccess.csproj", "{4F30F546-3948-4C2E-926B-1D93AF911FE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.Ef.DB", "Survey.DataAccess\Survey.Ef.DB.csproj", "{4F30F546-3948-4C2E-926B-1D93AF911FE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.Business", "Survey.Business\Survey.Business.csproj", "{37E04B48-4371-4437-A4D6-6555C7F4FD46}"
 EndProject

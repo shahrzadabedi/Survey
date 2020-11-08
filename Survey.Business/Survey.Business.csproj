@@ -66,9 +66,9 @@
     <Compile Include="SurveyService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Survey.DataAccess\Survey.DataAccess.csproj">
+    <ProjectReference Include="..\Survey.DataAccess\Survey.Ef.DB.csproj">
       <Project>{4f30f546-3948-4c2e-926b-1d93af911fe8}</Project>
-      <Name>Survey.DataAccess</Name>
+      <Name>Survey.Ef.DB</Name>
     </ProjectReference>
     <ProjectReference Include="..\Survey.Domain\Survey.Domain.csproj">
       <Project>{c564932a-ac67-404b-9207-bda6cfbca53d}</Project>

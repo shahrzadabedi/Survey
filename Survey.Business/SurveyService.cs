@@ -1,5 +1,5 @@
 ﻿using Survey.Business.Mapper;
-using Survey.DataAccess;
+using Survey.Ef.DB;
 using Survey.Domain;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Survey.Business
    internal  class SurveyService :ISurveyService
     {         
         
-        private IEFRepositoryLocator<DataAccess.Survey,DataAccess.User_Survey> context;
+        private IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.User_Survey> context;
         public SurveyService() {
            this.context = new SurveyEfDbContextLocator();
         }

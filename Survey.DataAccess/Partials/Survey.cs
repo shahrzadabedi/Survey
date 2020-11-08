@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Survey.Domain;
 
-namespace Survey.DataAccess
+namespace Survey.Ef.DB
 {
     partial class Survey : ISurvey
     {

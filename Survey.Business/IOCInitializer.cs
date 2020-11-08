@@ -11,8 +11,9 @@ namespace Survey.Business
        
        public void Initialize( Container Container)
         {
-            Container.Register<ISurveyService, SurveyService>(Lifestyle.Scoped);
-           
+            Container.Register<ISurveyService, SurveyService>(Lifestyle.Scoped);            
+            //Container.Register(typeof(IRepository<>), typeof(BaseEFRepository<>).Assembly);
+            //Container.Register<IEFRepositoryLocator<DataAccess.Survey, DataAccess.User_Survey>, SurveyEfDbContextLocator>(Lifestyle.Scoped);
         }
         
     }

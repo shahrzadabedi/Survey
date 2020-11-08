@@ -1,4 +1,4 @@
-﻿using Survey.DataAccess;
+﻿using Survey.Ef.DB;
 using Survey.Domain;
 using System;
 using System.Collections.Generic;
@@ -9,29 +9,28 @@ using System.Threading.Tasks;
 
 namespace Survey.Business
 {
-    public class SurveyEfDbContextLocator : IEFRepositoryLocator<DataAccess.Survey,DataAccess.User_Survey>,IDbContextLocator
+    public class SurveyEfDbContextLocator : IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.User_Survey>,IDbContextLocator
     {
         
         private readonly DbContext _dbContext;
-        private IRepository<DataAccess.Survey> _surveyRep;
-        private IRepository<DataAccess.User_Survey> _user_survey;
+        private IRepository<Ef.DB.Survey> _surveyRep;
+        private IRepository<Ef.DB.User_Survey> _user_survey;
         public DbContext DbContext { get { return _dbContext; }  }
 
-     
 
-        //public IRepository<TSurvey> SurveyRep { get { return _surveyRep; } }
-        //public IRepository<DataAccess.User_Survey> UserSurveyRep { get { return _user_survey; } }
 
 
         public SurveyEfDbContextLocator()
         {
             _dbContext = new SurveyEntities();
-            _surveyRep = new BaseEFRepository<DataAccess.Survey>(DbContext);
-            _user_survey = new BaseEFRepository<DataAccess.User_Survey>(DbContext);
+            this._surveyRep = new BaseEFRepository<Ef.DB.Survey>(_dbContext);
+            this._user_survey = new BaseEFRepository<Ef.DB.User_Survey>(_dbContext);
+            
+            
         }
              
 
-        public IRepository<DataAccess.Survey> SurveyRep()
+        public IRepository<Ef.DB.Survey> SurveyRep()
         {
             return _surveyRep;
         }
