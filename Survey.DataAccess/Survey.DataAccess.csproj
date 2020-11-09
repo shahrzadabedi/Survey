@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37E04B48-4371-4437-A4D6-6555C7F4FD46}</ProjectGuid>
+    <ProjectGuid>{BA1F2805-A399-49D9-B04F-B43373983D22}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Survey.Business</RootNamespace>
-    <AssemblyName>Survey.Business</AssemblyName>
+    <RootNamespace>Survey.DataAccess</RootNamespace>
+    <AssemblyName>Survey.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\output\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\..\survey\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="SimpleInjector">
       <HintPath>..\..\survey\packages\SimpleInjector.5.0.0\lib\net461\SimpleInjector.dll</HintPath>
@@ -41,9 +41,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,29 +49,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agent\AgentDAO.cs" />
+    <Compile Include="Repository\BaseEFRepository.cs" />
+    <Compile Include="Agent\IAgentDAO.cs" />
+    <Compile Include="IDbContextLocator.cs" />
     <Compile Include="IoCInitializer.cs" />
-    <Compile Include="ISurveyService.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="ISurveyDAO.cs" />
+    <Compile Include="IUserDAO.cs" />
+    <Compile Include="SurveyEfDbContextLocator.cs" />
     <Compile Include="Mapper\SurveyMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IUnitOfWork.cs" />
-    <Compile Include="SurveyService.cs" />
+    <Compile Include="SurveyDAO.cs" />
+    <Compile Include="UserDAO.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Survey.DataAccess\Survey.DataAccess.csproj">
-      <Project>{ba1f2805-a399-49d9-b04f-b43373983d22}</Project>
-      <Name>Survey.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Survey.Domain\Survey.Domain.csproj">
       <Project>{c564932a-ac67-404b-9207-bda6cfbca53d}</Project>
       <Name>Survey.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Survey.Ef.DB\Survey.Ef.DB.csproj">
+      <Project>{4f30f546-3948-4c2e-926b-1d93af911fe8}</Project>
+      <Name>Survey.Ef.DB</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

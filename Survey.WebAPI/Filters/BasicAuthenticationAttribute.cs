@@ -8,6 +8,8 @@ using System.Threading;
 using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Survey.WebAPI.Filters
 {
@@ -48,6 +50,14 @@ namespace Survey.WebAPI.Filters
         }
         public static bool IsAuthorizedUser(string Username, string Password)
         {
+            var userStore = new UserStore<IdentityUser>();
+            var manager = new UserManager<IdentityUser>(userStore);
+
+            var user = new IdentityUser() { UserName = Username };
+            
+            //IdentityResult result = manager.login
+                //Create(user, Password);
+
             // In this method we can handle our database logic here...  
             return Username == "sh.abedi" && Password == "demo";
         }

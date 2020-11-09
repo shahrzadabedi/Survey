@@ -6,13 +6,12 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 
-namespace Survey.Business
+
+namespace Survey.DataAccess
 {
-   public class BaseEFRepository<TEntity> : IRepository<TEntity> where TEntity: class
-        //where TEntity : class
+   public class BaseEFRepository<TEntity> : IRepository<TEntity> where TEntity: class        
 {
     internal DbContext context;
     internal DbSet<TEntity> dbSet;

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SimpleInjector;
+using Survey.DataAccess;
+
 namespace Survey.Business
 {
    public class IoCInitializer
@@ -11,9 +13,10 @@ namespace Survey.Business
        
        public void Initialize( Container Container)
         {
-            Container.Register<ISurveyService, SurveyService>(Lifestyle.Scoped);            
-            //Container.Register(typeof(IRepository<>), typeof(BaseEFRepository<>).Assembly);
-            //Container.Register<IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.User_Survey>, SurveyEfDbContextLocator>(Lifestyle.Scoped);
+            DataAccess.IoCInitializer initializer = new DataAccess.IoCInitializer();
+            initializer.Initialize(Container);
+            Container.Register<ISurveyService, SurveyService>(Lifestyle.Scoped);          
+            
         }
         
     }

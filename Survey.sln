@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.Domain", "Survey.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.WebAPI", "Survey.WebAPI\Survey.WebAPI.csproj", "{1982E42D-4CE7-4D56-91DC-B37D821416EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Survey.DataAccess", "Survey.DataAccess\Survey.DataAccess.csproj", "{BA1F2805-A399-49D9-B04F-B43373983D22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{1982E42D-4CE7-4D56-91DC-B37D821416EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1982E42D-4CE7-4D56-91DC-B37D821416EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1982E42D-4CE7-4D56-91DC-B37D821416EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1F2805-A399-49D9-B04F-B43373983D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1F2805-A399-49D9-B04F-B43373983D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1F2805-A399-49D9-B04F-B43373983D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1F2805-A399-49D9-B04F-B43373983D22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Survey.Business
+namespace Survey.DataAccess
 {
    public interface IRepository<TEntity>
    {
