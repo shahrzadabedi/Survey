@@ -1,4 +1,4 @@
-﻿using Survey.Business.Mapper;
+﻿
 //using Survey.Ef.DB;
 using Survey.Domain;
 using System;
@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Survey.DataAccess;
 using System.Threading;
+using System.Data.Entity.Migrations.Model;
 
 namespace Survey.Business
 {
@@ -18,10 +19,14 @@ namespace Survey.Business
         public SurveyService(IAgentDAO agentDAO) {
            this.agentDAO = agentDAO;
         }
-        public GetSurveysByStatusResponse  GetAll(SurveyStatus status)
+        public GetSurveysByStatusResponse GetAllSurveys(SurveyStatus status)
         {
-            var identity = Thread.CurrentPrincipal.Identity;
-            return agentDAO.getSurveyAgent().GetAll(status);            
+            return agentDAO.getSurveyAgent().GetAllSurveys(status);            
+        }
+
+        public void Add(SurveyDTO dto)
+        {
+             agentDAO.getSurveyAgent().Add(dto);
         }
 
     }

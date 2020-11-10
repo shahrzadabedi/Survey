@@ -8,16 +8,18 @@ using System.Threading.Tasks;
 
 namespace Survey.DataAccess
 {   
-    public interface IDbContextLocator 
+    public interface ISave 
     {
-        DbContext DbContext { get; }
+        void Save();
 
     }
-    public interface IEFRepositoryLocator<TSurvey,TUserSurvey>  
+    public interface IEFRepositoryLocator<TSurvey, TSurveyQAnswer,TQuestion>  :ISave
  
     {
         IRepository<TSurvey> SurveyRep() ;
-        IRepository<TUserSurvey> UserSurveyRep { get;  }
+        IRepository<TSurveyQAnswer> SurveyQAnswerRep { get;  }
+        IRepository<TQuestion> QuestionRep();
+        
 
     }
     

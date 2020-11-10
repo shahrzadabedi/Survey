@@ -11,7 +11,7 @@ namespace Survey.DataAccess
     {
         public void Initialize(Container Container)
         {
-            Container.Register<ISurveyDAO, SurveyDAO>(Lifestyle.Scoped);
+            Container.Register<ISurveyAgentDAO, SurveyDAO>(Lifestyle.Scoped);
             Container.Register<IUserDAO, UserDAO>(Lifestyle.Scoped);
             Container.Register<IAgentDAO, AgentDAO>(Lifestyle.Scoped);
         }

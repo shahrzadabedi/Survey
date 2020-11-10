@@ -78,7 +78,7 @@ namespace Survey.DataAccess
 
     public void Delete(TEntity entityToDelete)
     {
-        if (context.Entry(entityToDelete).State == EntityState.Detached)
+        if (context.Entry(entityToDelete).State == System.Data.Entity.EntityState.Detached)
         {
             dbSet.Attach(entityToDelete);
         }
@@ -88,7 +88,7 @@ namespace Survey.DataAccess
     public void Update(TEntity entityToUpdate)
     {
         dbSet.Attach(entityToUpdate);
-        context.Entry(entityToUpdate).State = EntityState.Modified;
+        context.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
     }
 
         

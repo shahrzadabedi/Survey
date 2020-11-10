@@ -21,7 +21,7 @@ namespace Survey.WebAPI.Filters
             {
                 var authToken = actionContext.Request.Headers
                     .Authorization.Parameter;
-
+               
                 // decoding authToken we get decode value in 'Username:Password' format  
                 var decodeauthToken = System.Text.Encoding.UTF8.GetString(
                     Convert.FromBase64String(authToken));
@@ -33,8 +33,15 @@ namespace Survey.WebAPI.Filters
                 if (IsAuthorizedUser(arrUserNameandPassword[0], arrUserNameandPassword[1]))
                 {
                     // setting current principle  
+                    var userStore = new UserStore<IdentityUser>();
+                    var manager = new UserManager<IdentityUser>(userStore);
+
+                    var roles = manager.Users.Where(p => p.UserName == "sh.abedi").FirstOrDefault().Roles.Select(p=> p.RoleId).ToArray();
                     Thread.CurrentPrincipal = new GenericPrincipal(
-                    new GenericIdentity(arrUserNameandPassword[0]), null);
+                    new GenericIdentity(arrUserNameandPassword[0]), roles);
+                   // Thread.SetData(new LocalDataStoreSlot(), actionContext.Request.Headers.Date);
+                    
+                    //actionContext.Request.Headers.Date
                 }
                 else
                 {
@@ -50,12 +57,7 @@ namespace Survey.WebAPI.Filters
         }
         public static bool IsAuthorizedUser(string Username, string Password)
         {
-            var userStore = new UserStore<IdentityUser>();
-            var manager = new UserManager<IdentityUser>(userStore);
-
-            var user = new IdentityUser() { UserName = Username };
-            
-            //IdentityResult result = manager.login
+           
                 //Create(user, Password);
 
             // In this method we can handle our database logic here...  

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Survey.DataAccess
 {
-    public interface ISurveyDAO
+    public interface ISurveyAgentDAO
     {
-        GetSurveysByStatusResponse GetAll(SurveyStatus Status);
+        GetSurveysByStatusResponse GetAllSurveys(SurveyStatus Status);
+        void Add(SurveyDTO dto);
     }
 }

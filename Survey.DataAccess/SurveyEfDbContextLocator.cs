@@ -10,22 +10,23 @@ using System.Threading.Tasks;
 
 namespace Survey.DataAccess
 {
-    public class SurveyEfDbContextLocator : IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.User_Survey>, IDbContextLocator
+    public class SurveyEfDbContextLocator : IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.SurveyQAnswer,Ef.DB.Question>
     {
 
-        private readonly DbContext _dbContext;
+        private DbContext _dbContext;
         private IRepository<Ef.DB.Survey> _surveyRep;
-        private IRepository<Ef.DB.User_Survey> _user_survey;
-        public DbContext DbContext { get { return _dbContext; } }
+        private IRepository<Ef.DB.SurveyQAnswer> _surveyQAnswer;
+        private IRepository<Ef.DB.Question> _question;
+       
 
 
 
 
         public SurveyEfDbContextLocator()
         {
-            _dbContext = new SurveyEntities();
+            _dbContext = new SurveyContext("name=SurveyConnection");
             this._surveyRep = new BaseEFRepository<Ef.DB.Survey>(_dbContext);
-            this._user_survey = new BaseEFRepository<Ef.DB.User_Survey>(_dbContext);
+            this._surveyQAnswer = new BaseEFRepository<Ef.DB.SurveyQAnswer>(_dbContext);
 
 
         }
@@ -35,6 +36,13 @@ namespace Survey.DataAccess
         {
             return _surveyRep;
         }
-        public IRepository<User_Survey> UserSurveyRep => throw new NotImplementedException();
+
+        public void Save()
+        {
+            _dbContext.SaveChanges();
+        }
+
+        public IRepository<Ef.DB.SurveyQAnswer> SurveyQAnswerRep => throw new NotImplementedException();
+        public IRepository<Ef.DB.Question> QuestionRep() { return _question; }
     }
 }

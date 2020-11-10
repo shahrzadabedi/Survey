@@ -8,14 +8,14 @@ namespace Survey.DataAccess
 {
     internal class AgentDAO : IAgentDAO
     {
-        private ISurveyDAO SurveyDAO;
+        private ISurveyAgentDAO SurveyDAO;
         private IUserDAO UserDAO;
-        public AgentDAO(ISurveyDAO surveyDAO,IUserDAO userDAO)
+        public AgentDAO(ISurveyAgentDAO surveyDAO,IUserDAO userDAO)
         {
             this.SurveyDAO = surveyDAO;
             this.UserDAO = userDAO;
         }
-        public ISurveyDAO getSurveyAgent()
+        public ISurveyAgentDAO getSurveyAgent()
         {
             return SurveyDAO;
         }
