@@ -11,7 +11,7 @@ namespace Survey.DataAccess
 {
     internal class SurveyDAO : ISurveyAgentDAO
     {
-        private IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.UserAnswer,Ef.DB.Question> context;
+        private IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.UserAnswer,Ef.DB.Question,Ef.DB.Answer> context;
         public SurveyDAO()
         {
             context = new SurveyEfDbContextLocator();
@@ -44,7 +44,7 @@ namespace Survey.DataAccess
         }
         public bool SurveyHasBeenConductedBefore(SurveyDto dto) 
         {
-            return context.SurveyQAnswerRep().Any(p => p.Survey.Id == dto.Id 
+            return context.UserAnswerRep().Any(p => p.Survey.Id == dto.Id 
                                                     && (SurveyAnswerStatus)p.Survey.State == SurveyAnswerStatus.Complete);
                         
         }

@@ -13,14 +13,16 @@ namespace Survey.DataAccess
         void Save();
 
     }
-    public interface IEFRepositoryLocator<TSurvey, TUserAnswer,TQuestion>  :ISave
+    public interface IEFRepositoryLocator<TSurvey, TUserAnswer,TQuestion, TAnswer>  :ISave
         where TSurvey: ISurvey
         where TQuestion: IQuestion
         where TUserAnswer: IUserAnswer
+        where TAnswer : IAnswer
     {
         IRepository<TSurvey> SurveyRep() ;
-        IRepository<TUserAnswer> SurveyQAnswerRep();
+        IRepository<TUserAnswer> UserAnswerRep();
         IRepository<TQuestion> QuestionRep();
+        IRepository<TAnswer> AnswersRep();
         
 
     }
