@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -91,6 +92,16 @@ namespace Survey.DataAccess
         context.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
     }
 
-        
+    public bool Any(Expression<Func<TEntity, bool>> filter = null)
+        {
+            IQueryable<TEntity> query = dbSet;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+           return query.Any();
+            
+        }
     }
 }

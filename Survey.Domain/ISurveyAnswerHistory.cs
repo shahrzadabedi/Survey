@@ -12,6 +12,6 @@ namespace Survey.Domain
        string UserName { get; set; }
        int AnswerStatus { get; set; }
        DateTime AnswerDateTime { get; set; }
-       SurveyDTO Survey { get; set; }
+       SurveyDto Survey { get; set; }
     }
 }

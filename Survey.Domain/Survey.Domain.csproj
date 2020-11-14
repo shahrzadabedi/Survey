@@ -41,21 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswerDTO.cs" />
+    <Compile Include="Enums\SurveyAnswerStatus.cs" />
     <Compile Include="Exceptions\DataAccessException.cs" />
     <Compile Include="Exceptions\InvalidOperaionException.cs" />
     <Compile Include="GetSurveysByStatusRequest.cs" />
     <Compile Include="GetSurveysByStatusResponse.cs" />
+    <Compile Include="IAnswer.cs" />
     <Compile Include="IQuestion.cs" />
     <Compile Include="ISurvey.cs" />
     <Compile Include="ISurveyAnswerHistory.cs" />
-    <Compile Include="ISurveyQAnswer.cs" />
+    <Compile Include="IUserAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question.cs" />
-    <Compile Include="SurveyDTO.cs" />
+    <Compile Include="QuestionDTO.cs" />
+    <Compile Include="SurveyDto.cs" />
     <Compile Include="Enums\SurveyStatus.cs" />
     <Compile Include="Enums\ValidOperation.cs" />
     <Compile Include="SurveyAnswerHistorycs.cs" />
-    <Compile Include="SurveyQAnswer.cs" />
+    <Compile Include="UserAnswerDTO.cs" />
+    <Compile Include="SurveyResultDTO.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

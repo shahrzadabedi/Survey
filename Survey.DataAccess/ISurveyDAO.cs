@@ -9,7 +9,7 @@ namespace Survey.DataAccess
 {
     public interface ISurveyAgentDAO
     {
-        GetSurveysByStatusResponse GetAllSurveys(SurveyStatus Status);
-        void Add(SurveyDTO dto);
+        List<SurveyDto> GetAllSurveys(SurveyStatus Status);
+        void Add(SurveyDto dto);
     }
 }

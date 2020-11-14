@@ -15,11 +15,11 @@ namespace Survey.WebAPI
             return result;
 
         }
-        public static SurveyDTO MapObject(this Models.SurveyModel model)
+        public static SurveyDto MapObject(this Models.SurveyModel model)
         {
             if (model == null)
                 return null;
-            SurveyDTO result = new SurveyDTO();
+            SurveyDto result = new SurveyDto();
             result.Id = model.Id;
             result.Duration = model.Duration;
             result.CreateDateTime = model.CreateDateTime;

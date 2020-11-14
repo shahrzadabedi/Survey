@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Survey.Ef.DB
 {
-   public class Question : IQuestion
+    public partial class Answer : IAnswer
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public Survey Survey { get; set; }
-        public ICollection<Answer> Answers { get; set; }        
-        public int QId { get; set; }
-        public string QDesc { get; set; }
+        public Question Question {get;set;}
+        public UserAnswer UserAnswer { get; set; }
+        public short Value { set; get; }
+        
     }
 }

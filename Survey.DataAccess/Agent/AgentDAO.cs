@@ -15,12 +15,12 @@ namespace Survey.DataAccess
             this.SurveyDAO = surveyDAO;
             this.UserDAO = userDAO;
         }
-        public ISurveyAgentDAO getSurveyAgent()
+        public ISurveyAgentDAO GetSurveyAgent()
         {
             return SurveyDAO;
         }
 
-        public IUserDAO getUserAgent()
+        public IUserDAO GetUserAgent()
         {
             return UserDAO;
         }

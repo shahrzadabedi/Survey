@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace Survey.DataAccess
 {
-    public class SurveyEfDbContextLocator : IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.SurveyQAnswer,Ef.DB.Question>
+    public class SurveyEfDbContextLocator : IEFRepositoryLocator<Ef.DB.Survey, Ef.DB.UserAnswer,Ef.DB.Question>
     {
 
         private DbContext _dbContext;
         private IRepository<Ef.DB.Survey> _surveyRep;
-        private IRepository<Ef.DB.SurveyQAnswer> _surveyQAnswer;
+        private IRepository<Ef.DB.UserAnswer> _surveyQAnswer;
         private IRepository<Ef.DB.Question> _question;
        
 
@@ -24,9 +24,9 @@ namespace Survey.DataAccess
 
         public SurveyEfDbContextLocator()
         {
-            _dbContext = new SurveyContext("name=SurveyConnection");
+            _dbContext = new SurveyContext();
             this._surveyRep = new BaseEFRepository<Ef.DB.Survey>(_dbContext);
-            this._surveyQAnswer = new BaseEFRepository<Ef.DB.SurveyQAnswer>(_dbContext);
+            this._surveyQAnswer = new BaseEFRepository<Ef.DB.UserAnswer>(_dbContext);
 
 
         }
@@ -42,7 +42,7 @@ namespace Survey.DataAccess
             _dbContext.SaveChanges();
         }
 
-        public IRepository<Ef.DB.SurveyQAnswer> SurveyQAnswerRep => throw new NotImplementedException();
+        public IRepository<Ef.DB.UserAnswer> SurveyQAnswerRep() { return _surveyQAnswer; }
         public IRepository<Ef.DB.Question> QuestionRep() { return _question; }
     }
 }

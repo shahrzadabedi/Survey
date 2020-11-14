@@ -14,7 +14,7 @@ using System.Web.Http;
 namespace Survey.WebAPI.Controllers
 {
     [BasicAuthentication]
-    public class SurveyController : ApiController
+    public class SurveyController : BaseController
     {
         private ISurveyService surveyService;
         public SurveyController(ISurveyService surveyService)
@@ -32,7 +32,7 @@ namespace Survey.WebAPI.Controllers
             GetSurveysByStatusResponse result = null;
             try 
             {
-              result = surveyService.GetAllSurveys(status);                    
+              result = surveyService.GetAllSurveys( status);                    
             }
             catch(DataAccessException ex)
             {
@@ -70,10 +70,7 @@ namespace Survey.WebAPI.Controllers
             {
                 return BadRequest(ex.Message);
             }
-            catch (Exception ex)
-            {
-                return InternalServerError(ex);
-            }
+            
             return Ok();
         }
 

@@ -52,13 +52,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answer.cs" />
+    <Compile Include="Migrations\202011111101591_AddSurveyQAnswerUserName.cs" />
+    <Compile Include="Migrations\202011111101591_AddSurveyQAnswerUserName.Designer.cs">
+      <DependentUpon>202011111101591_AddSurveyQAnswerUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011140913156_ChangeAnswerDBStructure.cs" />
+    <Compile Include="Migrations\202011140913156_ChangeAnswerDBStructure.Designer.cs">
+      <DependentUpon>202011140913156_ChangeAnswerDBStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011140942254_ChangeAnswerDBStructure1.cs" />
+    <Compile Include="Migrations\202011140942254_ChangeAnswerDBStructure1.Designer.cs">
+      <DependentUpon>202011140942254_ChangeAnswerDBStructure1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Partials\Survey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Survey.cs" />
-    <Compile Include="SurveyAnswerHistory.cs" />
     <Compile Include="SurveyContext.cs" />
-    <Compile Include="SurveyQAnswer.cs" />
+    <Compile Include="UserAnswer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -72,6 +85,17 @@
       <Project>{c564932a-ac67-404b-9207-bda6cfbca53d}</Project>
       <Name>Survey.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011111101591_AddSurveyQAnswerUserName.resx">
+      <DependentUpon>202011111101591_AddSurveyQAnswerUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011140913156_ChangeAnswerDBStructure.resx">
+      <DependentUpon>202011140913156_ChangeAnswerDBStructure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011140942254_ChangeAnswerDBStructure1.resx">
+      <DependentUpon>202011140942254_ChangeAnswerDBStructure1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

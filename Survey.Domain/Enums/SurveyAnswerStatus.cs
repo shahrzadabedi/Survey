@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Survey.Domain
 {
-    public class GetSurveysByStatusResponse
+   public enum SurveyAnswerStatus
     {
-        public List<SurveyResultDTO> Surveys { get; set; } 
+        Initiated = 1 ,
+        Complete = 2,
+        Canceled =4
+
     }
 }

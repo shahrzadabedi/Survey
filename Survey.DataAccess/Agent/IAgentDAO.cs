@@ -8,7 +8,7 @@ namespace Survey.DataAccess
 {
    public interface IAgentDAO
     {
-        ISurveyAgentDAO getSurveyAgent();
-        IUserDAO getUserAgent();
+        ISurveyAgentDAO GetSurveyAgent();
+        IUserDAO GetUserAgent();
     }
 }

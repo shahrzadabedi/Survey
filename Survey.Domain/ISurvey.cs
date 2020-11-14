@@ -11,7 +11,7 @@ namespace Survey.Domain
     {
          int Id { get; set; }
          int Duration { get; set; }
-        //public  Nullable<short> QCount { get; set; }
+       
          string CreatorUserName { get; set; }
          int State { get; set; }
          System.DateTime CreateDateTime { get; set; }

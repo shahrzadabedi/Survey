@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Survey.Domain
 {
-    public class GetSurveysByStatusResponse
+    public class SurveyResultDTO
     {
-        public List<SurveyResultDTO> Surveys { get; set; } 
+        public SurveyDto Survey { get; set; }
+        public List<ValidOperation> ValidOperations { get; set; }
     }
 }

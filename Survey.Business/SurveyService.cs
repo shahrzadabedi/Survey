@@ -21,13 +21,16 @@ namespace Survey.Business
         }
         public GetSurveysByStatusResponse GetAllSurveys(SurveyStatus status)
         {
-            return agentDAO.getSurveyAgent().GetAllSurveys(status);            
+            var surveyResults =  agentDAO.GetSurveyAgent().GetAllSurveys(status).Select(p=> p.WithValidOperation()).ToList();
+            GetSurveysByStatusResponse result = new GetSurveysByStatusResponse();
+            result.Surveys = surveyResults;
+            return result;
         }
 
-        public void Add(SurveyDTO dto)
+        public void Add(SurveyDto dto)
         {
-             agentDAO.getSurveyAgent().Add(dto);
+             agentDAO.GetSurveyAgent().Add(dto);
         }
-
+         
     }
 }
