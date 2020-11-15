@@ -32,7 +32,8 @@ namespace Survey.WebAPI.Controllers
             GetSurveysByStatusResponse result = null;
             try 
             {
-              result = surveyService.GetAllSurveys( status);                    
+              result = new GetSurveysByStatusResponse() { 
+                  Surveys = surveyService.GetAllSurveys(status).Select(p => p.MapObject()).ToList() };                    
             }
             catch(DataAccessException ex)
             {
@@ -46,9 +47,23 @@ namespace Survey.WebAPI.Controllers
         }
 
         // GET: api/Survey/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            SurveyModel result = null;
+            try
+            {
+                result= surveyService.Get(id).MapObject();
+             
+            }
+            catch (DataAccessException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+            return Ok(result);
         }
               
         // PUT: api/Survey/5
@@ -56,7 +71,7 @@ namespace Survey.WebAPI.Controllers
         {
         }
 
-        public IHttpActionResult Post(SurveyModel survey)
+        public IHttpActionResult Post(Models.SurveyModel survey)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid Data");

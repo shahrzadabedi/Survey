@@ -7,10 +7,10 @@ using Survey.Domain;
 
 namespace Survey.Ef.DB
 {
-    partial class Survey : ISurvey
-    {
+    //partial class Survey : ISurvey
+    //{
 
 
 
-    }
+    //}
 }

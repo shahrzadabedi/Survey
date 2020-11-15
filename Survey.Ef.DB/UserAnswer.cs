@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace Survey.Ef.DB
 {
-    public class UserAnswer: IUserAnswer
-    {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }              
+    //public class UserAnswer: IUserAnswer
+    //{
+    //    [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    //    public int Id { get; set; }              
       
-        public Survey Survey { get; set; }
-        public int AnswerStatus { get; set; }
-        public DateTime StartDateTime { get; set; }
-        public DateTime CompleteDateTime { get; set; }
-        public DateTime UserLastAnswerDateTime { get; set; }
-        public string UserName { get; set; }
-        ICollection<Answer> Answers { get; set; }
+    //    public Survey Survey { get; set; }
+    //    public int AnswerStatus { get; set; }
+    //    public DateTime StartDateTime { get; set; }
+    //    public DateTime CompleteDateTime { get; set; }
+    //    public DateTime UserLastAnswerDateTime { get; set; }
+    //    public string UserName { get; set; }
+    //    ICollection<Answer> Answers { get; set; }
 
         
 
-    }
+    //}
 }

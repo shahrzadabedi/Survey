@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Survey.Domain;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace Survey.Ef.DB
         {
 
         }
-        // public SurveyContext(string s) : base(s) { }
-        public DbSet<Survey> Surveys { get; set; }
+      
+        public DbSet<Domain.Survey> Surveys { get; set; }
         public DbSet<UserAnswer> UserAnswers { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }

@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Survey.Domain
 {
-    public class UserAnswerDTO : IUserAnswer
+    public class UserAnswer 
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public List<AnswerDTO> Question { get; set; }       
-        public SurveyDto Survey { get; set; }
-        //public int LastSuveyAnswerStatus { get; set; }
-        //public DateTime UserAnswerDateTime { get; set; }
+
+        public Survey Survey { get; set; }
         public int AnswerStatus { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime CompleteDateTime { get; set; }
         public DateTime UserLastAnswerDateTime { get; set; }
         public string UserName { get; set; }
+        ICollection<Answer> Answers { get; set; }
     }
 }

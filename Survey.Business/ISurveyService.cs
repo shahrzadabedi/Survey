@@ -9,7 +9,8 @@ namespace Survey.Business
 {
     public interface ISurveyService
     {
-        GetSurveysByStatusResponse GetAllSurveys(SurveyStatus request);
-        void Add(SurveyDto dto);
+        List<SurveyResultDto> GetAllSurveys(SurveyStatus request);
+        SurveyResultDto Get(int Id);
+        void Add(Domain.Survey dto);
     }
 }

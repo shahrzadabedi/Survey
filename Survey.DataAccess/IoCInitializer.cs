@@ -11,9 +11,9 @@ namespace Survey.DataAccess
     {
         public void Initialize(Container Container)
         {
-            Container.Register<ISurveyAgentDAO, SurveyDAO>(Lifestyle.Scoped);
-            Container.Register<IUserDAO, UserDAO>(Lifestyle.Scoped);
-            Container.Register<IAgentDAO, AgentDAO>(Lifestyle.Scoped);
+            Container.Register<IEFRepositoryLocator<Domain.Survey, Domain.UserAnswer, Domain.Question, Domain.Answer>, SurveyEfDbContextLocator>(Lifestyle.Scoped);
+           // Container.Register<IUserDAO, UserDAO>(Lifestyle.Scoped);
+           // Container.Register<IAgentDAO, AgentDAO>(Lifestyle.Scoped);
         }
     }
 }

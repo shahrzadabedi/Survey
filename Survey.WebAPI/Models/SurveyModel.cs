@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Survey.WebAPI.Models
 {
-    public class SurveyModel : ISurvey
+    public class SurveyModel 
     {
         
         public int Id { get; set; }
@@ -17,11 +17,14 @@ namespace Survey.WebAPI.Models
        
         public string CreatorUserName { get; set; }
         [Required]
-        public int State { get; set; }
+        public SurveyStatus Status { get; set; }
        
         public DateTime CreateDateTime { get; set; }
         [Required]
         public ICollection<QuestionModel> Questions { get; set; }
+        public ICollection<UserAnswerModel> UserAnswers { get; set; }
+
+        public ICollection<ValidOperation> ValidOperations { get; set; }
 
     }
 }

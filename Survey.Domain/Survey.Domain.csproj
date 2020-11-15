@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnswerDTO.cs" />
+    <Compile Include="AnswerDto.cs" />
+    <Compile Include="Dto\SurveyDto.cs" />
     <Compile Include="Enums\SurveyAnswerStatus.cs" />
     <Compile Include="Exceptions\DataAccessException.cs" />
     <Compile Include="Exceptions\InvalidOperaionException.cs" />
@@ -53,12 +55,11 @@
     <Compile Include="ISurveyAnswerHistory.cs" />
     <Compile Include="IUserAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionDTO.cs" />
-    <Compile Include="SurveyDto.cs" />
+    <Compile Include="QuestionDto.cs" />
+    <Compile Include="Survey.cs" />
     <Compile Include="Enums\SurveyStatus.cs" />
     <Compile Include="Enums\ValidOperation.cs" />
-    <Compile Include="SurveyAnswerHistorycs.cs" />
-    <Compile Include="UserAnswerDTO.cs" />
+    <Compile Include="UserAnswerDto.cs" />
     <Compile Include="SurveyResultDTO.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>

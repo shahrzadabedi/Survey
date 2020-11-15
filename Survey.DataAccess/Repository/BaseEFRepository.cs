@@ -31,8 +31,9 @@ namespace Survey.DataAccess
 
     public IEnumerable<TEntity> Get(
         Expression<Func<TEntity, bool>> filter = null,
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-        string includeProperties = "")
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, 
+        params Expression<Func<TEntity, object>>[] includeProperties
+        )
     {
         IQueryable<TEntity> query = dbSet;
 
@@ -41,17 +42,14 @@ namespace Survey.DataAccess
             query = query.Where(filter);
         }
 
-        if (includeProperties != null)
+        foreach (Expression<Func<TEntity, object>> includeProperty in includeProperties)
         {
-            foreach (var includeProperty in includeProperties.Split
-            (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                query = query.Include(includeProperty);
-            }
+            query = query.Include<TEntity, object>(includeProperty);
         }
 
 
-        if (orderBy != null)
+
+            if (orderBy != null)
         {
             return orderBy(query).ToList();
         }
@@ -90,7 +88,8 @@ namespace Survey.DataAccess
     {
         dbSet.Attach(entityToUpdate);
         context.Entry(entityToUpdate).State = System.Data.Entity.EntityState.Modified;
-    }
+           
+        }
 
     public bool Any(Expression<Func<TEntity, bool>> filter = null)
         {

@@ -13,7 +13,7 @@ namespace Survey.Domain
          int Duration { get; set; }
        
          string CreatorUserName { get; set; }
-         int State { get; set; }
+        SurveyStatus Status { get; set; }
          System.DateTime CreateDateTime { get; set; }
      
         

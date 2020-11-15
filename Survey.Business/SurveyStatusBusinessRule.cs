@@ -9,12 +9,14 @@ namespace Survey.Business
 {
    public static class SurveyStatusBusinessRule
     {
-        public static SurveyResultDTO WithValidOperation(this SurveyDto surveyDTO)
+        public static SurveyResultDto WithValidOperation(this Domain.Survey surveyDto)
         {
-            SurveyResultDTO resu = new SurveyResultDTO();
+            if (surveyDto == null)
+                return null;
+            SurveyResultDto resu = new SurveyResultDto();
             resu.ValidOperations = new List<ValidOperation>();
-            resu.Survey = surveyDTO;
-            switch (surveyDTO.Status)
+            resu.Survey = surveyDto;
+            switch (surveyDto.Status)
             {
                 case SurveyStatus.New:
                     resu.ValidOperations.Add(ValidOperation.Open);
@@ -25,7 +27,7 @@ namespace Survey.Business
                     break;
                 case SurveyStatus.Open:
                     resu.ValidOperations.Add(ValidOperation.Close);
-                    if (!surveyDTO.UserAnswers.Any(p=> p.AnswerStatus == (int)SurveyAnswerStatus.Complete || p.AnswerStatus == (int)SurveyAnswerStatus.Initiated))
+                    if (!surveyDto.UserAnswers.Any(p=> p.AnswerStatus == (int)SurveyAnswerStatus.Complete || p.AnswerStatus == (int)SurveyAnswerStatus.Initiated))
                         resu.ValidOperations.Add(ValidOperation.Edit);
                     break;
                 case SurveyStatus.Closed:

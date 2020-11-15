@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Survey.WebAPI.Models
 {
-    public class QuestionModel: IQuestion
+    public class QuestionModel
     {
       
         public  int Id { get; set; }
