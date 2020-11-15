@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerDto.cs" />
-    <Compile Include="Dto\SurveyDto.cs" />
     <Compile Include="Enums\SurveyAnswerStatus.cs" />
     <Compile Include="Exceptions\DataAccessException.cs" />
     <Compile Include="Exceptions\InvalidOperaionException.cs" />
@@ -62,6 +61,9 @@
     <Compile Include="UserAnswerDto.cs" />
     <Compile Include="SurveyResultDTO.cs" />
     <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dto\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
