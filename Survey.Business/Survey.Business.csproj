@@ -58,7 +58,6 @@
     <Compile Include="ISurveyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SurveyService.cs" />
-    <Compile Include="SurveyServiceA.cs" />
     <Compile Include="SurveyStatusBusinessRule.cs" />
   </ItemGroup>
   <ItemGroup>

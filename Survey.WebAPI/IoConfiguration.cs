@@ -18,7 +18,8 @@ namespace Survey.WebAPI
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             IoCInitializer initializer = new IoCInitializer();
-            initializer.Initialize(container);
+            initializer.Initialize(container);            
+
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             container.Verify();

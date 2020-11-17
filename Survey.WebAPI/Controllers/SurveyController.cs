@@ -12,9 +12,9 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace Survey.WebAPI.Controllers
-{
+{   
     [BasicAuthentication]
-    public class SurveyController : BaseController
+    public class SurveyController : ApiController
     {
         private ISurveyService surveyService;
         public SurveyController(ISurveyService surveyService)
@@ -23,7 +23,7 @@ namespace Survey.WebAPI.Controllers
 
         }
         // GET: api/Survey/GetAll
-        
+       
         [HttpGet]
 
         public IHttpActionResult GetAll(SurveyStatus status)
@@ -45,7 +45,7 @@ namespace Survey.WebAPI.Controllers
             }
             return Ok(result);
         }
-
+       
         // GET: api/Survey/5
         public IHttpActionResult Get(int id)
         {
@@ -70,7 +70,7 @@ namespace Survey.WebAPI.Controllers
         public void Put(int id, [FromBody]string value)
         {
         }
-
+        
         public IHttpActionResult Post(Models.SurveyModel survey)
         {
             if (!ModelState.IsValid)
