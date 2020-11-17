@@ -10,7 +10,7 @@ namespace Survey.DataAccess
 {   
     public interface ISave 
     {
-        void Save();
+        Task Save();
 
     }
     public interface IEFRepositoryLocator<TSurvey, TUserAnswer,TQuestion, TAnswer>  :ISave

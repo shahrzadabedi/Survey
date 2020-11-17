@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Survey.WebAPI.Controllers
@@ -26,33 +27,30 @@ namespace Survey.WebAPI.Controllers
        
         [HttpGet]
 
-        public IHttpActionResult GetAll(SurveyStatus status)
+        public async Task<IHttpActionResult> GetAll(SurveyStatus status)
         {
            
             GetSurveysByStatusResponse result = null;
             try 
             {
               result = new GetSurveysByStatusResponse() { 
-                  Surveys = surveyService.GetAllSurveys(status).Select(p => p.MapObject()).ToList() };                    
+                  Surveys = (await surveyService.GetAllSurveys(status)).Select(p => p.MapObject()).ToList() };                    
             }
             catch(DataAccessException ex)
             {
                 return BadRequest(ex.Message);
             }
-            catch(Exception ex) 
-            {
-                return InternalServerError(ex);
-            }
+            
             return Ok(result);
         }
        
         // GET: api/Survey/5
-        public IHttpActionResult Get(int id)
+        public async Task<IHttpActionResult> Get(int id)
         {
             SurveyModel result = null;
             try
             {
-                result= surveyService.Get(id).MapObject();
+                result= (await surveyService.Get(id)).MapObject();
              
             }
             catch (DataAccessException ex)
@@ -71,7 +69,7 @@ namespace Survey.WebAPI.Controllers
         {
         }
         
-        public IHttpActionResult Post(Models.SurveyModel survey)
+        public async Task<IHttpActionResult> Post(Models.SurveyModel survey)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid Data");
@@ -79,7 +77,7 @@ namespace Survey.WebAPI.Controllers
            {
                 var dto = survey.MapObject();
                 dto.CreateDateTime = DateTime.Now;
-                surveyService.Add(dto);
+               await surveyService.Add(dto);
             }
             catch (InvalidOperaionException ex)
             {

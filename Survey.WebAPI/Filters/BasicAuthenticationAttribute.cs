@@ -39,9 +39,7 @@ namespace Survey.WebAPI.Filters
                     var roles = manager.Users.Where(p => p.UserName == "sh.abedi").FirstOrDefault().Roles.Select(p=> p.RoleId).ToArray();
                     Thread.CurrentPrincipal = new GenericPrincipal(
                     new GenericIdentity(arrUserNameandPassword[0]), roles);
-                   // Thread.SetData(new LocalDataStoreSlot(), actionContext.Request.Headers.Date);
-                    
-                    //actionContext.Request.Headers.Date
+                  
                 }
                 else
                 {

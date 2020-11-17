@@ -28,16 +28,16 @@ namespace Survey.WebAPI.Filters
         public override async Task OnActionExecutingAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
         {
             
-            string userName = ((System.Security.Principal.GenericPrincipal)Thread.CurrentPrincipal).Identity.Name;
-            GlobalDiagnosticsContext.Set("user", userName);
+            //string userName = ((System.Security.Principal.GenericPrincipal)Thread.CurrentPrincipal).Identity.Name;
+            //GlobalDiagnosticsContext.Set("user", userName);
                       
             Log.InitiateService(actionContext.Request);
             await Log.Log(actionContext);
         }
         public override async Task OnActionExecutedAsync(HttpActionExecutedContext actionExecutedContext, CancellationToken cancellationToken)
         {
-            string userName = ((System.Security.Principal.GenericPrincipal)Thread.CurrentPrincipal).Identity.Name;
-            GlobalDiagnosticsContext.Set("user", userName);
+            //string userName = ((System.Security.Principal.GenericPrincipal)Thread.CurrentPrincipal).Identity.Name;
+            //GlobalDiagnosticsContext.Set("user", userName);
            
             await Log.Log(actionExecutedContext);
             Log.EndService(actionExecutedContext.Request);

@@ -38,9 +38,9 @@ namespace Survey.DataAccess
             return _surveyRep;
         }
 
-        public void Save()
+        public async Task Save()
         {
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
         public IRepository<Domain.UserAnswer> UserAnswerRep() { return _userAnswerRep; }

@@ -23,7 +23,7 @@ namespace Survey.DataAccess
         this.dbSet = context.Set<TEntity>();
     }
 
-    public IEnumerable<TEntity> GetWithRawSql(string query,
+    public  IEnumerable<TEntity> GetWithRawSql(string query,
         params object[] parameters)
     {
         return dbSet.SqlQuery(query, parameters).ToList();
@@ -47,7 +47,7 @@ namespace Survey.DataAccess
             query = query.Include<TEntity, object>(includeProperty);
         }
 
-
+            
 
             if (orderBy != null)
         {
@@ -59,7 +59,37 @@ namespace Survey.DataAccess
         }
     }
 
-    public TEntity GetByID(object id)
+
+        public async Task<IEnumerable<TEntity>> GetAsync(
+        Expression<Func<TEntity, bool>> filter = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        params Expression<Func<TEntity, object>>[] includeProperties
+        )
+        {
+            IQueryable<TEntity> query = dbSet;
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            foreach (Expression<Func<TEntity, object>> includeProperty in includeProperties)
+            {
+                query = query.Include<TEntity, object>(includeProperty);
+            }
+
+
+
+            if (orderBy != null)
+            {
+                return await orderBy(query).ToListAsync();
+            }
+            else
+            {
+                return await query.ToListAsync();
+            }
+        }
+        public TEntity GetByID(object id)
     {
         return dbSet.Find(id);
     }
@@ -69,7 +99,9 @@ namespace Survey.DataAccess
         dbSet.Add(entity);
     }
 
-    public void Delete(object id)
+    
+
+        public void Delete(object id)
     {
         TEntity entityToDelete = dbSet.Find(id);
         Delete(entityToDelete);
@@ -102,5 +134,7 @@ namespace Survey.DataAccess
            return query.Any();
             
         }
+
+      
     }
 }

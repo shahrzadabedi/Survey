@@ -9,8 +9,8 @@ namespace Survey.Business
 {
     public interface ISurveyService
     {
-        List<SurveyResultDto> GetAllSurveys(SurveyStatus request);
-        SurveyResultDto Get(int Id);
-        void Add(Domain.Survey dto);
+        Task<List<SurveyResultDto>> GetAllSurveys(SurveyStatus request);
+        Task<SurveyResultDto> Get(int Id);
+        Task Add(Domain.Survey dto);
     }
 }

@@ -20,32 +20,30 @@ namespace Survey.Business
             this.context = context;
                 //new SurveyEfDbContextLocator();
         }
-        public List<SurveyResultDto> GetAllSurveys(SurveyStatus status)
+        public async Task<List<SurveyResultDto>> GetAllSurveys(SurveyStatus status)
         {           
             bool isAdmin = ((System.Security.Principal.GenericPrincipal)Thread.CurrentPrincipal).IsInRole("1");
 
             if (!isAdmin && (status == SurveyStatus.New || status == SurveyStatus.Edit))
-                throw new Survey.Domain.Exceptions.DataAccessException("Survey");
+                throw new Survey.Domain.Exceptions.DataAccessException("Survey");           
 
-            List<string> includeProperties = new List<string>();
-
-            var surveys = context.SurveyRep().Get(p => (p.Status & status) == p.Status, null, 
+            var surveys = await context.SurveyRep().GetAsync(p => (p.Status & status) == p.Status, null,
                 p => p.UserAnswers,
-                p=> p.Questions
-
-                )                     
-                 .ToList();
+                p => p.Questions                );            
             var surveyResults = surveys.Select(p=> p.WithValidOperation()).ToList();
             return surveyResults;
         }
 
-        public void Add(Domain.Survey dto)
+        public async Task Add(Domain.Survey dto)
         {
+            // Interception => IOC (SimpleInjector, AOP, Logging)
+            //Log.LogINfo(dto);
             bool isAdmin = ((System.Security.Principal.GenericPrincipal)Thread.CurrentPrincipal).IsInRole("1");
             if (!isAdmin)
                 throw new Survey.Domain.Exceptions.InvalidOperaionException();
-            context.SurveyRep().Insert(dto);
-            context.Save();
+             context.SurveyRep().Insert(dto);
+           await  context.Save();
+            //Log.LogInfo("Add Successfully executed");
         }
         public bool SurveyHasBeenConductedBefore(Domain.Survey dto)
         {
@@ -55,13 +53,12 @@ namespace Survey.Business
 
         }
 
-        public SurveyResultDto Get(int Id)
+        public async Task<SurveyResultDto> Get(int Id)
         {
-            var survey = context.SurveyRep().Get(p => p.Id == Id, null, p => p.UserAnswers,
-               p => p.Questions)
-               .FirstOrDefault();                     
+            var survey = await context.SurveyRep().GetAsync(p => p.Id == Id, null, p => p.UserAnswers,
+               p => p.Questions);                                    
                  
-           return survey== null ? null :survey.WithValidOperation();
+           return survey.FirstOrDefault() == null ? null :survey.FirstOrDefault().WithValidOperation();
         }
     }
 }

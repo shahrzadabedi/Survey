@@ -18,11 +18,16 @@ namespace Survey.DataAccess
            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null, 
            params Expression<Func<TEntity, object>>[] includeProperties
            );
+       Task<IEnumerable<TEntity>> GetAsync(
+           Expression<Func<TEntity, bool>> filter = null,
+           Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+           params Expression<Func<TEntity, object>>[] includeProperties
+           );
         bool Any(Expression<Func<TEntity, bool>> filter = null);
         TEntity GetByID(object id);
        IEnumerable<TEntity> GetWithRawSql(string query,
            params object[] parameters);
-       void Insert(TEntity entity);
+       void Insert(TEntity entity);      
        void Update(TEntity entityToUpdate);
       
     }
