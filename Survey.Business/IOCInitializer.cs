@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SimpleInjector;
+
 using Survey.DataAccess;
 
 namespace Survey.Business
@@ -11,11 +11,11 @@ namespace Survey.Business
    public class IoCInitializer
     {
        
-       public void Initialize( Container Container)
+       public void Initialize(SimpleInjector.Container Container)
         {
             DataAccess.IoCInitializer initializer = new DataAccess.IoCInitializer();
             initializer.Initialize(Container);
-            Container.Register<ISurveyService, SurveyService>(Lifestyle.Scoped);          
+            Container.Register<ISurveyService, SurveyService>(SimpleInjector.Lifestyle.Scoped);          
             
         }
         
