@@ -14,7 +14,8 @@ namespace Survey.DataAccess
         public void Initialize(SimpleInjector.Container Container)
         {
             Container.Register<IEFRepositoryLocator<Domain.Survey, Domain.UserAnswer, Domain.Question, Domain.Answer>, SurveyEfDbContextLocator>(Lifestyle.Scoped);
-            /// commit change 1 to remote master
+            
+            /// commit change 2 to remote master
         }
     }
 }
