@@ -15,7 +15,7 @@ namespace Survey.DataAccess
         {
             Container.Register<IEFRepositoryLocator<Domain.Survey, Domain.UserAnswer, Domain.Question, Domain.Answer>, SurveyEfDbContextLocator>(Lifestyle.Scoped);
             
-            /// commit change 2 to remote master
+            /// commit change 4 to remote master
         }
     }
 }
